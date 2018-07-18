@@ -1,0 +1,17 @@
+version: "3.0"
+services:
+
+  nginx:
+    build: "./container/nginx"
+    ports:
+      - "80:80"
+    volumes:
+      - "./public:/var/www/html/public"
+    container_name: "lnmp_nginx"
+
+  php-fpm:
+    build: "./container/php-fpm"
+    volumes:
+      - "./public:/var/www/html/public"
+    container_name: "lnmp_php-fpm"
+  
